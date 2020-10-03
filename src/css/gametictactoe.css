@@ -1,0 +1,38 @@
+.main{
+    background-color: blue;
+    height: 100vh;
+}
+h1{
+    text-align: center;
+    color:white
+}
+p{
+    color: rgb(234, 243, 234);
+    border: 1px solid white;
+    width:200px;
+    padding:10px;
+    text-align: center;
+}
+.playerOrWinner{
+    display: flex;
+    justify-content: center;
+    margin: 40px auto;
+    font-size: 20px;
+}
+.container { 
+    display: flex;
+    justify-content: center;
+    height: 60px;
+    position: relative;
+    margin:20px;
+  }
+
+  .btnMove{
+      width: 200px;
+      height: 40px;
+      font-size: 16px;
+      margin: 5px;
+      border-radius: 4px;
+      background-color:black;
+      color: white;
+  }
