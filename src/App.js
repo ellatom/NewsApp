@@ -1,16 +1,30 @@
 import React from 'react';
-import GameTicTacToe from './GameTicTacToe';
+import { BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
+import HeaderNewsCategory from './HeaderNewsCategory';
+import CategoryPage from './CategoryPage';
+import ManageAPI from './ManageAPI';
 
-class App extends React.Component {
+const App =()=>{
 
-    render() {
-        return (
-            <>
-                <GameTicTacToe></GameTicTacToe>
-            </>
-        );
-    }
-}
+    return(
+    
+    <div className="ui container">
+      <BrowserRouter>
+        <div>
+          
+          <HeaderNewsCategory/>
+          <Switch>
+            {/* <Route exact path="/" component={HomePage}/> */}
+            <Redirect exact from='/' to='/category/general'/>
+            <Route exact path="/category/livenews"  component={ManageAPI} />
+            <Route exact path="/category/:categoryname"  component={CategoryPage} />
+          </Switch>
+        </div>
+      </BrowserRouter>
+    </div>
+ 
+    );
+};
 
 
 export default App;
