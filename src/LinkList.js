@@ -52,22 +52,4 @@ export default LinkList;
 //     Sports
 //   </Link>
 // </div>
-          // <div className="left menu">
-          //   <Link id="entertainment" to="/category/entertainment" className='item' onClick={this.toggleToActive}>
-          //     Entertainment
-          //   </Link>
-          // </div>
-          // <div className="left menu">
-          //   <Link id="science" to="/category/science" className='item' onClick={this.toggleToActive}>
-          //     Science
-          //   </Link>
-          // </div>
-          // <div className="left menu">
-          //   <Link id="business" to="/category/business" className='item' onClick={this.toggleToActive}>
-          //     Business
-          //   </Link>
-          // </div>}
 
-               // <div className="left menu">
-          //   <LinkList categories={this.state.categories} onClick={this.toggleToActive}/>
-          // </div>

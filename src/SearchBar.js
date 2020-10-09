@@ -1,24 +1,19 @@
 
-import React from "react";
+import React, { useState } from 'react';
 
-class Searchbar extends React.Component {
+function Searchbar(props) {
 
-  state = {
-    keyword: '',
-  };
+  const [keyword, setkeyword] = useState('');
+  const{searchWord}=props;
 
-  editSearchTerm = (event) => {
+  const editSearchTerm = (event) => {
     event.preventDefault();
     
     let search = event.target.value;
-    this.props.searchWord(search);
-
-    this.setState({
-      keyword:search
-    });
+    searchWord(search);//like this.props.searchWord
+    setkeyword(search);
   };
 
-  render() {
     return (
         <>
         <div className="gap">
@@ -26,12 +21,12 @@ class Searchbar extends React.Component {
             className="prompt" 
             placeholder="Search..." 
             type="text"
-            value={this.state.keyword}
-            onChange={this.editSearchTerm}
+            value={keyword}
+            onChange={editSearchTerm}
           />
         </div>
         </>
     );
   }
-}
+
 export default Searchbar;

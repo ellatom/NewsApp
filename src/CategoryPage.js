@@ -90,7 +90,7 @@ class CategoryPage extends React.Component {
             </div>
           </div>
         </div>
-        {this.state.loading&&<Loader/>}
+        {/* {this.state.loading&&<Loader/>} */}
         {this.showNews()}
         {<p>{this.showError()}</p>}
       </Container>

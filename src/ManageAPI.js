@@ -91,7 +91,8 @@ class ManageAPI extends React.Component {
         <PostList
           posts={this.state.posts}
           onDelete={this.setDelete}
-          onEdit={this.setEdit}>
+          onEdit={this.setEdit}
+          savePost={this.savePost}>
         </PostList>
         <LiveNewsPage
           post={this.state.currentPost}

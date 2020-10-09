@@ -4,6 +4,7 @@ import { Header,TextArea,Label,Icon,Button,Form,Message } from "semantic-ui-reac
 
 class LiveNewsPage extends React.Component {
 
+    
     state={title:"",description:"",author:"",urlToImage:""}
 
     handleChange = (event) => {
@@ -38,8 +39,11 @@ class LiveNewsPage extends React.Component {
             document.querySelector(".msg").innerHTML="Field shouldnt be empty";
             return;
         }
+ 
         this.props.savePost(this.props.post);
         this.newPost(event);
+
+        this.props.closePopup();
     }
 
     render() {
@@ -101,6 +105,7 @@ class LiveNewsPage extends React.Component {
 
                 <Message className="msg" error header='Empty Fields' content='All fields are required'></Message> 
                 <Button primary onClick={this.savePost}>{this.props.post.id ? "Save" : "Add"}</Button>
+                <Button primary onClick={this.props.closePopup}>Cancel</Button>
                 <br/>
             </Form> 
             </div>

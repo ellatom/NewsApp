@@ -1,28 +1,17 @@
-const { React, ReactDOM } = window
-const { useState, Fragment } = React
-const { createPortal} = ReactDOM
-const Outsider = () => createPortal(<h1>Hello</h1>, document.body)
+import React from 'react';
+import LiveNewsPage from './LiveNewsPage';
+import './modal.css';
 
-
-const Modal = ({ children, onClose, open }) =>
-//   open ?
-//     createPortal(
-//       <div className='modal'>
-//         <button onClick={onClose} className='modal__close'>&times;</button>
-//         {children}
-//       </div>,
-//     document.body)
-//     : null
-
-// const App = () => {
-//   const [open, setOpen] = useState(false)
-//   return (
-//     <Fragment>
-//     <button onClick={() => setOpen(!open)}>Show Modal?</button>
-//       <Modal open={open} onClose={() => setOpen(false)}>
-//         Test Modal
-//       </Modal>
-//     </Fragment>
-  )
+class Popup extends React.Component {
+  render() {
+    return (
+      <div className='modal'>
+        <div className='popup_inner'>
+          <LiveNewsPage post={this.props.post} savePost={this.props.savePost} closePopup={this.props.closePopup} ></LiveNewsPage>
+        </div>
+      </div>
+    );
+  }
 }
-  
+
+export default Popup;
