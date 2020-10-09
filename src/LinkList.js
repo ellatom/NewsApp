@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 
 class LinkList extends React.Component {
 
-     state = { activeId: this.props.active };
+     state = { activeId: this.props.active ||  "general" };
 
      onClick = (event) => {
     
-          this.setState({activeId: event.target.id});
+          this.setState({activeId: event.target.id });
      }
 
      getClassName = (category) =>

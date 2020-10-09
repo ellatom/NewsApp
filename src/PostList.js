@@ -1,5 +1,6 @@
 import React from 'react';
 import PostDetails from './PostDetails';
+import './postlist.css'
 
 class PostList extends React.Component {
   
@@ -19,8 +20,7 @@ class PostList extends React.Component {
   };
 
   render() {
-    // console.log(this.props.posts.data);
-    return <div className="postList" >{this.renderPostList()}</div>//need to call to function
+    return <div className="postList" >{this.renderPostList()}</div>
   }
 }
 

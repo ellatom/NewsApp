@@ -21,24 +21,24 @@ const NewsItem = (props) => {
           </List.Description>
           <List bulleted horizontal>
             <List.Item>
-              <a href={article.url!==null?article.url:"https://i.guim.co.uk/img/media/c4be9e861737d25f001c0232b15e5564f9832c71/0_101_3500_2100/master/3500.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=5449c0bdc7be7db8db0b76268ed1f73f" }>
+              <a href={article.url}>
                 {article.source.name}</a>
             </List.Item>
             <List.Item>{article.publishedAt.split("T")[0]}</List.Item>
             <List.Item>{article.author!== null?article.author:'no author'}</List.Item>
           </List>
-        </Grid.Column>
-        
-        <Grid.Column width={5}>
-          <Image src={article.urlToImage} />
-        </Grid.Column>
-        <Grid.Column width={10}>
+          <br/>
           <List horizontal>
               <List.Item  className="no" verticalalign='middle'><i className="fas fa-times"><span className="tooltiptext">False News</span></i></List.Item>
               <List.Item  className="mayby" verticalalign='middle'><i className="fas fa-question"><span className="tooltiptext">Not Fully True News</span></i></List.Item>
               <List.Item  className="yes" verticalalign='middle'><i className="far fa-heart"><span className="tooltiptext">True News</span></i></List.Item>
           </List>
         </Grid.Column>
+        
+        <Grid.Column width={3}>
+          <Image src={article.urlToImage!==null?article.urlToImage:"https://i.guim.co.uk/img/media/c4be9e861737d25f001c0232b15e5564f9832c71/0_101_3500_2100/master/3500.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=5449c0bdc7be7db8db0b76268ed1f73f"} />
+        </Grid.Column>
+        
       </Grid>
     </List.Item>
   );

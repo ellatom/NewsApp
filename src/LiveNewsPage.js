@@ -4,7 +4,7 @@ import { Header,TextArea,Label,Icon,Button,Form,Message } from "semantic-ui-reac
 
 class LiveNewsPage extends React.Component {
 
-    state={title:"",description:"",author:""}
+    state={title:"",description:"",author:"",urlToImage:""}
 
     handleChange = (event) => {
         const value = event.target.value;
@@ -17,14 +17,14 @@ class LiveNewsPage extends React.Component {
 
     newPost = (event) => {
         event.preventDefault();
-        // document.querySelector(".msg").setAttribute("style","display:block");
 
         this.props.post.id = "";
         this.props.post.title = "";
         this.props.post.description = "";
         this.props.post.author = "";
+        this.props.post.urlToImage = "";
         
-        this.setState({title: "", description: "",author:""});
+        this.setState({title: "", description: "",author:"",urlToImage:""});
     }
 
     savePost = async (event) => {
@@ -32,7 +32,8 @@ class LiveNewsPage extends React.Component {
         document.querySelector(".msg").innerHTML="";
         event.preventDefault();
         
-        if(this.props.post.author==="" || this.props.post.description==="" || this.props.post.title==="")
+        if(this.props.post.author==="" || this.props.post.description==="" 
+            || this.props.post.title==="" || this.props.post.urlToImage==="")
         {
             document.querySelector(".msg").innerHTML="Field shouldnt be empty";
             return;
@@ -81,6 +82,17 @@ class LiveNewsPage extends React.Component {
                     onChange={this.handleChange} 
                     rows="1" cols="50" 
                     placeholder="Insert author here">
+                </TextArea>
+                <br/>
+                <Label htmlFor="imageUrl"><Icon name='camera' />Image</Label>
+                <br/>
+                <TextArea 
+                    id="urlToImage"  
+                    name="urlToImage"  
+                    value={this.props.post.urlToImage} 
+                    onChange={this.handleChange} 
+                    rows="1" cols="50" 
+                    placeholder="Insert image url here">
                 </TextArea>
                 <br/>
                 <div>You should consent to location sharing for showing location</div>

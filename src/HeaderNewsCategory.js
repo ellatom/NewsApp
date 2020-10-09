@@ -27,8 +27,7 @@ class HeaderNewsCategory extends React.Component {
           <div className="left menu">
             <LinkList categories={this.state.categories} active={this.currentCategory()}></LinkList>
           </div>
-
-          <div className="item">
+          <div className="item right menu">
             <div className="ui primary button">Sign Up</div>
           </div>
         </div>

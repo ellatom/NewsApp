@@ -4,10 +4,11 @@ import { Container } from "semantic-ui-react";
 import NewsList from './NewsList';
 import './categorypage.css';
 import SearchBar from './SearchBar';
+import Loader from './Loader';
 
 class CategoryPage extends React.Component {
 
-  state = {
+  state = {isLoading:false,
     initialArticles: [], articles: [], apiError: "", activecategory: "",
     categories: ["general", "technology", "sports", "business", "science", "entertainment"]
   };
@@ -39,8 +40,9 @@ class CategoryPage extends React.Component {
   }//receive error from api
 
   setCategory = async (category) => {
+    this.setState({isLoading:true});
     const response = await api.getByCategory(category);
-    this.setState({ articles: response, initialArticles: response });
+    this.setState({ articles: response, initialArticles: response ,isLoading:false});
     console.log(response);
   }
 
@@ -58,7 +60,7 @@ class CategoryPage extends React.Component {
   {
     if (this.state.articles.length === 0)
       return (
-        "no results"
+        <Loader/>//"no results"
       );
 
     return (
@@ -88,7 +90,7 @@ class CategoryPage extends React.Component {
             </div>
           </div>
         </div>
-
+        {this.state.loading&&<Loader/>}
         {this.showNews()}
         {<p>{this.showError()}</p>}
       </Container>
