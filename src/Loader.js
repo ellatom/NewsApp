@@ -1,14 +1,14 @@
 import React from 'react';
 import './loader.css'
 
-function ShowDetail() {
+function Loader() {
   return (
   
-    <div class="ui active inverted dimmer">
-        <div class="ui large text loader">Loading</div>
+    <div className="ui active inverted dimmer">
+        <div className="ui large text loader">Loading</div>
     </div>
    
   );
 }
 
-export default ShowDetail;
+export default Loader;

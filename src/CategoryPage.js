@@ -80,7 +80,7 @@ class CategoryPage extends React.Component {
     console.log(`CategoryPage.render`);
     return (
       <Container>
-        <div className="ui pointing menu">
+         <div className="ui pointing menu">
           <div className="right menu">
             <div className="item">
               <div className="ui transparent icon input">
@@ -89,7 +89,7 @@ class CategoryPage extends React.Component {
               </div>
             </div>
           </div>
-        </div>
+          </div>
         {/* {this.state.loading&&<Loader/>} */}
         {this.showNews()}
         {<p>{this.showError()}</p>}

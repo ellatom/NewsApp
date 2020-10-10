@@ -23,7 +23,6 @@ class HeaderNewsCategory extends React.Component {
     return (
       <div>
         <div className="ui pointing menu">
-
           <div className="left menu">
             <LinkList categories={this.state.categories} active={this.currentCategory()}></LinkList>
           </div>

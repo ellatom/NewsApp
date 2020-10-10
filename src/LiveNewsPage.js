@@ -5,7 +5,7 @@ import { Header,TextArea,Label,Icon,Button,Form,Message } from "semantic-ui-reac
 class LiveNewsPage extends React.Component {
 
     
-    state={title:"",description:"",author:"",urlToImage:""}
+    state={title:"",description:"",author:"",urlToImage:"",error:false}
 
     handleChange = (event) => {
         const value = event.target.value;
@@ -30,19 +30,18 @@ class LiveNewsPage extends React.Component {
 
     savePost = async (event) => {
       
-        document.querySelector(".msg").innerHTML="";
         event.preventDefault();
-        
-        if(this.props.post.author==="" || this.props.post.description==="" 
-            || this.props.post.title==="" || this.props.post.urlToImage==="")
+        debugger;
+        if(this.state.author==="" || this.state.description==="" 
+            || this.state.title==="" || this.state.urlToImage==="")
         {
-            document.querySelector(".msg").innerHTML="Field shouldnt be empty";
+            this.setState({error:true});
             return;
         }
  
         this.props.savePost(this.props.post);
         this.newPost(event);
-
+        this.setState({error:false});
         this.props.closePopup();
     }
 
@@ -103,7 +102,9 @@ class LiveNewsPage extends React.Component {
                 {/* <MapLocation></MapLocation> */}
                 <br/>
 
-                <Message className="msg" error header='Empty Fields' content='All fields are required'></Message> 
+                <div>{this.state.error?
+                <Message className="msg" error header='Empty Fields' content='All fields are required'></Message>:null}
+                </div> 
                 <Button primary onClick={this.savePost}>{this.props.post.id ? "Save" : "Add"}</Button>
                 <Button primary onClick={this.props.closePopup}>Cancel</Button>
                 <br/>
