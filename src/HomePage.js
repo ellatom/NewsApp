@@ -5,6 +5,7 @@ import NewsList from './NewsList';
 import './homepage.css';
 import SearchBar from './SearchBar';
 
+//menu homepage=general category
 class HomePage extends React.Component {
 
   state = { articles: [], initialArticles: [],apiError: "" };

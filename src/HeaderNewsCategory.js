@@ -1,16 +1,16 @@
 import React from 'react';
 import LinkList from './LinkList';
 
+//header which contains categories(LinkList-navigation through categories)
 class HeaderNewsCategory extends React.Component {
 
   state = {
-    currentActive: "/", previousActive: "/",
+    currentActive: "/",
     categories: ["General", "Technology", "Sports", "Entertainment", "Science", "Business", "LiveNews"]
   }
 
-  currentCategory = () =>
-  {
-    let pathname = 
+  currentCategory = () => {
+    let pathname =
       window.location.pathname.split("/");
 
     let category = pathname.length === 3 ? pathname[2] : null;//solved refresh F5 bug

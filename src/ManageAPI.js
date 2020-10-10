@@ -3,7 +3,9 @@ import api from './api';
 import LiveNewsPage from './LiveNewsPage';
 import PostList from './PostList';
 import Popup from './Modal';
+import Loader from './Loader';
 
+//controls all crud functionality 
 class ManageAPI extends React.Component {
 
   state = { posts: [], loading: false ,currentPost:{},showPopup:false};
@@ -58,7 +60,9 @@ class ManageAPI extends React.Component {
 
       await api.createPost(post);
     }
-
+    this.setState({
+      loading: true
+    });
     await this.getPosts();
     
     this.setState({
@@ -105,13 +109,14 @@ class ManageAPI extends React.Component {
         </div>
 
         {this.state.showPopup && <Popup post={this.state.posts} savePost={this.savePost} closePopup={this.togglePopup} />}
+        {!this.state.loading?
         <PostList
           posts={this.state.posts}
           onDelete={this.setDelete}
           onEdit={this.setEdit}
           savePost={this.savePost}>
           error={this.state.error}
-        </PostList>
+        </PostList>:<Loader/>}
         {/* <LiveNewsPage
           post={this.state.currentPost}
           savePost={this.savePost}>

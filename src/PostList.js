@@ -2,6 +2,7 @@ import React from 'react';
 import PostDetails from './PostDetails';
 import './postlist.css'
 
+//In news live  postlist, each post is postdetails component.
 function PostList(props) {
 
   const { onDelete, onEdit, savePost, posts } = props;

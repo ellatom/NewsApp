@@ -14,7 +14,6 @@ const App =()=>{
           
           <HeaderNewsCategory/>
           <Switch>
-            {/* <Route exact path="/" component={HomePage}/> */}
             <Redirect exact from='/' to='/category/general'/>
             <Route exact path="/category/livenews"  component={ManageAPI} />
             <Route exact path="/category/:categoryname"  component={CategoryPage} />

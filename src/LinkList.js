@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 
-
+//creates the navigation by clicking on header category  menu
 class LinkList extends React.Component {
 
      state = { activeId: this.props.active ||  "general" };
@@ -10,7 +10,7 @@ class LinkList extends React.Component {
     
           this.setState({activeId: event.target.id });
      }
-
+//semantic gui needs in class name active-to know the active category to color and violet define the color
      getClassName = (category) =>
      {
           let className = 'item left menu';
@@ -43,8 +43,6 @@ class LinkList extends React.Component {
 };
 
 export default LinkList;
-//   <LinkList  categories={this.state.categories}  onClick={this.toggleToActive}></LinkList>
-
 
 
 //{ <div className="left menu">

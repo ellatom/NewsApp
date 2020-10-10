@@ -4,6 +4,7 @@ import './newsList.css';
 import Aos from "aos";
 import "aos/dist/aos.css";
 
+//show the post details of each post in news list.
 const NewsItem = (props) => {
 
   useEffect(()=>{

@@ -1,6 +1,7 @@
 import React from 'react';
 import './loader.css'
 
+//used by catgory page
 function Loader() {
   return (
   

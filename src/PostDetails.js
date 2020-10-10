@@ -2,20 +2,19 @@ import React, { useState } from 'react';
 import { Grid, List, Header, Image } from "semantic-ui-react";
 import './postdetails.css';
 import Popup from './Modal';
-
+//postlist has post, eact post has details, click on edit opens popup.
 function PostDetails(props) {
 
     const [showPopup, setShowPopup] = useState(false);
     const { onDelete, onEdit, savePost, post, keyPost } = props;
-    // state = { open: false };
 
-    const onDeleteClick = async (event) => {
-        onDelete(event, keyPost);
+    const onDeleteClick = async (event) => {//if i call asyncf function i should add await
+        await onDelete(event, keyPost);
     }
 
     const onEditClick = async (event) => {
         setShowPopup(true);
-        onEdit(event, post.id);
+        await onEdit(event, post.id);
     }
 
     const togglePopup = () => {
@@ -47,7 +46,6 @@ function PostDetails(props) {
             {showPopup && <Popup post={post} savePost={savePost} closePopup={togglePopup} />}
         </>
     )
-
 }
 export default PostDetails;
 
