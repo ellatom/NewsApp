@@ -3,7 +3,7 @@ import { NEWS_API_KEY } from "./config";
 //rest api calls to endpoint,do CRUD from 2 servers newsapi(fetch news) and mockapi(fetch and save new created posts by user).
 
 const instance =
-    axios.create({ baseURL: `https://newsapi.org/v2` });
+    axios.create({ baseURL: `http://newsapi.org/v2` });
 
 async function getByCategory(category) {
     const response = await (await instance.get(`/top-headlines?apiKey=${NEWS_API_KEY}&category=${category}&sortBy=publishedAt&country=us`)).data.articles;
